@@ -11904,11 +11904,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -11967,7 +11962,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/Users/codymiller/.dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet@8/8.0.14_1/libexec/sdk/8.0.114/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

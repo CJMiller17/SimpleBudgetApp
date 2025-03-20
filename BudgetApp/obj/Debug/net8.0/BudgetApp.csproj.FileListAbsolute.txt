@@ -291,7 +291,8 @@
 /Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/bin/Debug/net8.0/runtimes/win/lib/net7.0/System.Drawing.Common.dll
 /Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/bin/Debug/net8.0/runtimes/win/lib/net7.0/System.Security.Cryptography.ProtectedData.dll
 /Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/bin/Debug/net8.0/runtimes/win/lib/net7.0/System.Windows.Extensions.dll
-/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/obj/Debug/net8.0/BudgetApp.csproj.Up2Date
 /Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/bin/Debug/net8.0/Syncfusion.EJ2.dll
 /Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/bin/Debug/net8.0/Syncfusion.Licensing.dll
 /Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/obj/Debug/net8.0/BudgetApp.MvcApplicationPartsAssemblyInfo.cs
+/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/obj/Debug/net8.0/BudgetApp.sourcelink.json
+/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/obj/Debug/net8.0/BudgetApp.csproj.CopyComplete

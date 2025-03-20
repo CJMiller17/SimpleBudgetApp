@@ -26,20 +26,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/Views/Category/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcnkvQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/Views/Category/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcnkvRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/Views/Category/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcnkvRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/Views/Category/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcnkvRWRpdC5jc2h0bWw=
+[/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/Views/Category/AddOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcnkvQWRkT3JFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/Views/Category/Index.cshtml]
