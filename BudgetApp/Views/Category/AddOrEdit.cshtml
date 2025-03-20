@@ -1,7 +1,8 @@
 @model BudgetApp.Models.Category
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["PageTitle"] = Model.CategoryId == 0 ? "Create Category" : "Edit Category";
+
 }
 
 <div class="row">
