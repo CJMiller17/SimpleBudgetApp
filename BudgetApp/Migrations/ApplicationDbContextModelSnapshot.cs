@@ -139,20 +139,13 @@ namespace BudgetApp.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BudgetApp.Models.User", "User")
-                        .WithMany("Transactions")
+                    b.HasOne("BudgetApp.Models.User", null)
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Category");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("BudgetApp.Models.User", b =>
-                {
-                    b.Navigation("Transactions");
                 });
 #pragma warning restore 612, 618
         }
