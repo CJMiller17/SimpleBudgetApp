@@ -1,6 +1,4 @@
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+
 @{
     List<Object> menuItems = new List<Object>();
 
@@ -19,7 +17,7 @@
     {
         text = "Categories",
         url = "/Category",
-        iconCss = "fa-solid fa-folder-closed",
+        iconCss = "fa-solid fa-shapes",
     });
     menuItems.Add(new
     {
@@ -34,11 +32,16 @@
             target=".dock-target" enableGestures="false">
     <e-content-template>
 
+        <div class="logo-wrapper">
+            <div class="w-100"></div>
+            <i id="sidebar-toggler" class="fa-solid"></i>
+        </div>
+
         <div class="profile-wrapper">
-            <img class="profile-pic" src="~/profile.jpg" />
+            <img class="profile-pic" alt="profile picture of the user" src="~/profile.jpg" />
             <div class="titles d-flex flex-column ps-3">
                 <h6 class="mb-0">Budget App</h6>
-                <span class="text-muted">Ashton Cox</span>
+                <span class="text-muted">Dynamically Generated Name of User</span>
             </div>
         </div>
 
@@ -56,5 +59,4 @@
             dockBar.toggle();
         };
     });
-
 </script>

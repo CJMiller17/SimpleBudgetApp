@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BudgetApp.Models;
 
@@ -18,13 +13,13 @@ namespace BudgetApp.Controllers
             _context = context;
         }
 
-        // GET: Category
+        // GET: Get the list of categories
         public async Task<IActionResult> Index()
         {
             return View(await _context.Categories.ToListAsync());
         }
         
-        // GET: Category/AddOrEdit
+        // GET: Get the AddOrEdit view
         public IActionResult AddOrEdit(int id=0)
         {
             if (id == 0)
@@ -34,9 +29,7 @@ namespace BudgetApp.Controllers
 
         }
 
-        // POST: Category/AddOrEdit
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Creates or updates a category
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddOrEdit([Bind("CategoryId,Title,Icon,Type")] Category category)
@@ -53,7 +46,7 @@ namespace BudgetApp.Controllers
             return View(category);
         }
         
-        // POST: Category/Delete/5
+        // POST: Delete a category using its ID
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

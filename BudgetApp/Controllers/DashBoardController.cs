@@ -17,79 +17,95 @@ namespace BudgetApp.Controllers
 
         public async Task<ActionResult> Index()
         {
-            //Last 7 Days
-            DateTime StartDate = DateTime.Today.AddDays(-6);
-            DateTime EndDate = DateTime.Today;
-
-            List<Transaction> SelectedTransactions = await _context.Transactions
+            // Find the most recent transaction by its date
+            DateTime? latestTransactionDate = await _context.Transactions
+                .OrderByDescending(t => t.Date)
+                .Select(t => t.Date)
+                .FirstOrDefaultAsync();
+    
+           // If no transactions exist, use today's date
+            DateTime endDate = latestTransactionDate ?? DateTime.Today;
+            DateTime startDate = endDate.AddDays(-6);
+    
+            // Will get the last 7 days of transactions
+            List<Transaction> selectedTransactions = await _context.Transactions
                 .Include(x => x.Category)
-                .Where(y => y.Date >= StartDate && y.Date <= EndDate)
+                .Where(y => y.Date >= startDate && y.Date <= endDate)
                 .ToListAsync();
 
-            //Total Income
-            int TotalIncome = SelectedTransactions
+            
+            /* Widget Calculations */
+            
+            // Total Income
+            decimal totalIncome = selectedTransactions
                 .Where(i => i.Category.Type == "Income")
                 .Sum(j => j.Amount);
-            ViewBag.TotalIncome = TotalIncome.ToString("C0");
+            ViewBag.TotalIncome = totalIncome.ToString("C2");
 
-            //Total Expense
-            int TotalExpense = SelectedTransactions
+            // Total Expense
+            decimal totalExpense = selectedTransactions
                 .Where(i => i.Category.Type == "Expense")
                 .Sum(j => j.Amount);
-            ViewBag.TotalExpense = TotalExpense.ToString("C0");
+            ViewBag.TotalExpense = totalExpense.ToString("C2");
 
-            //Balance
-            int Balance = TotalIncome - TotalExpense;
-            CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
-            culture.NumberFormat.CurrencyNegativePattern = 1;
-            ViewBag.Balance = String.Format(culture, "{0:C0}", Balance);
+            // Net Balance
+            decimal balance = totalIncome - totalExpense;
+            CultureInfo usCulture = CultureInfo.CreateSpecificCulture("en-US");
+            usCulture.NumberFormat.CurrencyNegativePattern = 1;
+            ViewBag.Balance = String.Format(usCulture, "{0:C2}", balance);
 
-            //Doughnut Chart - Expense By Category
-            ViewBag.DoughnutChartData = SelectedTransactions
+            
+            /* Doughnut Chart */
+            
+            // Expense By Category
+            ViewBag.DoughnutChartData = selectedTransactions
                 .Where(i => i.Category.Type == "Expense")
                 .GroupBy(j => j.Category.CategoryId)
                 .Select(k => new
                 {
                     categoryTitleWithIcon = k.First().Category.Icon + " " + k.First().Category.Title,
                     amount = k.Sum(j => j.Amount),
-                    formattedAmount = k.Sum(j => j.Amount).ToString("C0"),
+                    formattedAmount = k.Sum(j => j.Amount).ToString("C2"),
                 })
                 .OrderByDescending(l => l.amount)
                 .ToList();
 
-            //Spline Chart - Income vs Expense
+            
+            /* Spline Chart */
 
-            //Income
-            List<SplineChartData> IncomeSummary = SelectedTransactions
+            // Income
+            List<SplineChartData> incomeSummary = selectedTransactions
                 .Where(i => i.Category.Type == "Income")
                 .GroupBy(j => j.Date)
                 .Select(k => new SplineChartData()
                 {
-                    day = k.First().Date.ToString("dd-MMM"),
+                    day = k.First().Date.ToString("MMM d"),
                     income = k.Sum(l => l.Amount)
                 })
                 .ToList();
 
-            //Expense
-            List<SplineChartData> ExpenseSummary = SelectedTransactions
+            // Expense
+            List<SplineChartData> expenseSummary = selectedTransactions
                 .Where(i => i.Category.Type == "Expense")
                 .GroupBy(j => j.Date)
                 .Select(k => new SplineChartData()
                 {
-                    day = k.First().Date.ToString("dd-MMM"),
+                    day = k.First().Date.ToString("MMM d"),
                     expense = k.Sum(l => l.Amount)
                 })
                 .ToList();
 
-            //Combine Income & Expense
-            string[] Last7Days = Enumerable.Range(0, 7)
-                .Select(i => StartDate.AddDays(i).ToString("dd-MMM"))
+            // Total Amount
+            string[] last7Days = Enumerable.Range(0, 7)
+                .Select(i => startDate.AddDays(i).ToString("MMM d"))
                 .ToArray();
 
-            ViewBag.SplineChartData = from day in Last7Days
-                                      join income in IncomeSummary on day equals income.day into dayIncomeJoined
+            ViewBag.SplineChartData = from day in last7Days
+                
+                                      join income in incomeSummary on day equals income.day into dayIncomeJoined
                                       from income in dayIncomeJoined.DefaultIfEmpty()
-                                      join expense in ExpenseSummary on day equals expense.day into expenseJoined
+                                      
+                                      join expense in expenseSummary on day equals expense.day into expenseJoined
                                       from expense in expenseJoined.DefaultIfEmpty()
                                       select new
                                       {
@@ -97,7 +113,10 @@ namespace BudgetApp.Controllers
                                           income = income == null ? 0 : income.income,
                                           expense = expense == null ? 0 : expense.expense,
                                       };
-            //Recent Transactions
+            
+           
+            /* Recent Transactions Widget */
+            
             ViewBag.RecentTransactions = await _context.Transactions
                 .Include(i => i.Category)
                 .OrderByDescending(j => j.Date)
@@ -108,12 +127,12 @@ namespace BudgetApp.Controllers
             return View();
         }
     }
-
+    
     public class SplineChartData
     {
         public string day;
-        public int income;
-        public int expense;
+        public decimal income;
+        public decimal expense;
 
     }
 }

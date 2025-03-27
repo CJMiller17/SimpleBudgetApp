@@ -48,6 +48,14 @@ body {
   box-shadow: none;
 }
 
+.btn-success {
+  color: #c9c9c9 !important;
+}
+
+.btn-success:hover {
+  color: white !important;
+}
+
 /*Hyperlink*/
 .no-a-decoration, .no-a-decoration:hover {
   text-decoration: none;
@@ -292,6 +300,10 @@ img.profile-pic {
 
 #sidebar.e-close .profile-wrapper .titles {
   display: none !important;
+}
+
+#sidebar.e-close .e-menu-item.e-separator {
+  display: none; 
 }
 
 

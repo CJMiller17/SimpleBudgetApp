@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BudgetApp.Models;
 
@@ -18,14 +13,14 @@ namespace BudgetApp.Controllers
             _context = context;
         }
 
-        // GET: Transaction
+        // GET: Get the list of transactions
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Transactions.Include(t => t.Category);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Transaction/AddOrEdit
+        // GET: Get the Transaction AddOrEdit view
         public IActionResult AddOrEdit(int id = 0)
         {
             PopulateCategories();
@@ -35,9 +30,7 @@ namespace BudgetApp.Controllers
                 return View(_context.Transactions.Find(id));
         }
 
-        // POST: Transaction/AddOrEdit
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Create or edit a Transaction
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddOrEdit([Bind("TransactionId,CategoryId,Amount,Note,Date")] Transaction transaction)
@@ -55,7 +48,7 @@ namespace BudgetApp.Controllers
             return View(transaction);
         }
 
-        // POST: Transaction/Delete/5
+        // POST: Deletes a transaction using its ID
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -78,10 +71,10 @@ namespace BudgetApp.Controllers
         [NonAction]
         public void PopulateCategories()
         {
-            var CategoryCollection = _context.Categories.ToList();
-            Category DefaultCategory = new Category() { CategoryId = 0, Title = "Choose a Category" };
-            CategoryCollection.Insert(0, DefaultCategory);
-            ViewBag.Categories = CategoryCollection;
+            var categoryCollection = _context.Categories.ToList();
+            Category defaultCategory = new Category() { CategoryId = 0, Title = "Choose a Category" };
+            categoryCollection.Insert(0, defaultCategory);
+            ViewBag.Categories = categoryCollection;
         }
     }
 }

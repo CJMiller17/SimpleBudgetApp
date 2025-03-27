@@ -9,8 +9,8 @@
       "PackagePath": "staticwebassets/css/site.css"
     },
     {
-      "Id": "/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/wwwroot/favicon.ico",
-      "PackagePath": "staticwebassets/favicon.ico"
+      "Id": "/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
     },
     {
       "Id": "/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/wwwroot/js/site.js",

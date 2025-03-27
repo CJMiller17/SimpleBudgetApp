@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BqoP0x+nZ9STZcLmFJAb9+7ILxth2KXPHZkMLS314MU=",
+  "Hash": "QZQ/wa47GPumPhUJ5ExoMm/9ejVEm4/K51FLe7sbyI0=",
   "Source": "BudgetApp",
   "BasePath": "_content/BudgetApp",
   "Mode": "Default",
@@ -74,12 +74,12 @@
       "OriginalItemSpec": "wwwroot/css/site.css"
     },
     {
-      "Identity": "/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/wwwroot/favicon.ico",
+      "Identity": "/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/wwwroot/favicon.png",
       "SourceId": "BudgetApp",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/wwwroot/",
       "BasePath": "_content/BudgetApp",
-      "RelativePath": "favicon.ico",
+      "RelativePath": "favicon.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -90,7 +90,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/favicon.ico"
+      "OriginalItemSpec": "wwwroot/favicon.png"
     },
     {
       "Identity": "/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/wwwroot/js/site.js",
