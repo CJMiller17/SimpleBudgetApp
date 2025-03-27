@@ -1,0 +1,19 @@
+@model IEnumerable<BudgetApp.Models.User>
+
+    @{
+    ViewData["PageTitle"] = "Select User Profile";
+}
+
+<div class="row">
+    @foreach (var user in Model)
+{
+    <div class="col-md-4 mb-4">
+        <a href="@Url.Action("SelectUser", "User", new { id = user.UserId })" class="text-decoration-none">
+        <div class="widget p-4 text-center user-profile-card">
+        <img src="~/images/@user.ProfileImagePath" alt="@user.Name" class="profile-pic mb-3" style="width: 100px; height: 100px;">
+        <h4>@user.Name</h4>
+        </div>
+        </a>
+        </div>
+}
+</div>

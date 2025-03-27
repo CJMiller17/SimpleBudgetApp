@@ -20,6 +20,10 @@ public class Transaction
     public string? Note { get; set; }
     
     public DateTime Date { get; set; } = DateTime.Now;
+    
+    [Required]
+    public int UserId { get; set; }
+    // public User? User { get; set; }
 
     [NotMapped]
     public string? CategoryTitleWithIcon => Category == null ? "" : Category.Icon + " " + Category.Title;

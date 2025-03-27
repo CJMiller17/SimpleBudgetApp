@@ -296,3 +296,6 @@
 /Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/obj/Debug/net8.0/BudgetApp.MvcApplicationPartsAssemblyInfo.cs
 /Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/obj/Debug/net8.0/BudgetApp.sourcelink.json
 /Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/obj/Debug/net8.0/BudgetApp.csproj.CopyComplete
+/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/bin/Debug/net8.0/Microsoft.AspNetCore.JsonPatch.dll
+/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/bin/Debug/net8.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/bin/Debug/net8.0/Newtonsoft.Json.Bson.dll

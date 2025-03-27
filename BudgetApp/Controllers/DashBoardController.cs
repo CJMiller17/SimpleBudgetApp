@@ -9,28 +9,45 @@ namespace BudgetApp.Controllers
     {
 
         private readonly ApplicationDbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public DashboardController(ApplicationDbContext context)
+        public DashboardController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
+        }
+        
+        private int GetSelectedUserId()
+        {
+            // Get selected user ID from session, default to 1 if not set
+            return _httpContextAccessor.HttpContext.Session.GetInt32("SelectedUserId") ?? 1;
         }
 
         public async Task<ActionResult> Index()
         {
+            
+            int userId = GetSelectedUserId();
+    
+            // Get user info for the sidebar
+            var user = await _context.Users.FindAsync(userId);
+            ViewBag.UserName = user?.Name ?? "Default User";
+            ViewBag.UserProfileImage = user?.ProfileImagePath ?? "profile.jpg";
+            
             // Find the most recent transaction by its date
             DateTime? latestTransactionDate = await _context.Transactions
+                .Where(t => t.UserId == userId)
                 .OrderByDescending(t => t.Date)
                 .Select(t => t.Date)
                 .FirstOrDefaultAsync();
     
            // If no transactions exist, use today's date
             DateTime endDate = latestTransactionDate ?? DateTime.Today;
-            DateTime startDate = endDate.AddDays(-6);
+            DateTime startDate = endDate.AddDays(0); //-6
     
             // Will get the last 7 days of transactions
             List<Transaction> selectedTransactions = await _context.Transactions
                 .Include(x => x.Category)
-                .Where(y => y.Date >= startDate && y.Date <= endDate)
+                .Where(y => y.Date >= startDate && y.Date <= endDate && y.UserId == userId)
                 .ToListAsync();
 
             

@@ -13,6 +13,26 @@
       "PackagePath": "staticwebassets/favicon.png"
     },
     {
+      "Id": "/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/wwwroot/images/AminaHassan.png",
+      "PackagePath": "staticwebassets/images/AminaHassan.png"
+    },
+    {
+      "Id": "/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/wwwroot/images/GerardHaversham.png",
+      "PackagePath": "staticwebassets/images/GerardHaversham.png"
+    },
+    {
+      "Id": "/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/wwwroot/images/JamalPatel.png",
+      "PackagePath": "staticwebassets/images/JamalPatel.png"
+    },
+    {
+      "Id": "/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/wwwroot/images/KenjiTanaka.png",
+      "PackagePath": "staticwebassets/images/KenjiTanaka.png"
+    },
+    {
+      "Id": "/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/wwwroot/images/MariaGarcia.png",
+      "PackagePath": "staticwebassets/images/MariaGarcia.png"
+    },
+    {
       "Id": "/Users/codymiller/Coding/CodeYou/BudgetApp/BudgetApp/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },
