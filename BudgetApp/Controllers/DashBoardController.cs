@@ -40,15 +40,32 @@ namespace BudgetApp.Controllers
                 .Select(t => t.Date)
                 .FirstOrDefaultAsync();
     
-           // If no transactions exist, use today's date
+            // If no transactions exist, use today's date
             DateTime endDate = latestTransactionDate ?? DateTime.Today;
-            DateTime startDate = endDate.AddDays(0); //-6
     
-            // Will get the last 7 days of transactions
-            List<Transaction> selectedTransactions = await _context.Transactions
+            // Get all transactions for this user, ordered by date descending
+            var userTransactions = await _context.Transactions
                 .Include(x => x.Category)
-                .Where(y => y.Date >= startDate && y.Date <= endDate && y.UserId == userId)
+                .Where(t => t.UserId == userId)
+                .OrderByDescending(t => t.Date)
                 .ToListAsync();
+
+            // Get the distinct transaction dates
+            var distinctTransactionDates = userTransactions
+                .Select(t => t.Date.Date) // Use Date to ignore time component
+                .Distinct()
+                .Take(7) // Take the 7 most recent dates with transactions
+                .ToList();
+
+            // If we have less than 7 distinct dates, use what we have
+            DateTime startDate = distinctTransactionDates.Count > 0 
+                ? distinctTransactionDates.Last() // The oldest of our distinct dates
+                : endDate; // Fallback if we have no transactions
+
+            // Get transactions from those dates
+            List<Transaction> selectedTransactions = userTransactions
+                .Where(t => distinctTransactionDates.Contains(t.Date.Date))
+                .ToList();
 
             
             /* Widget Calculations */
@@ -113,8 +130,9 @@ namespace BudgetApp.Controllers
                 .ToList();
 
             // Total Amount
-            string[] last7Days = Enumerable.Range(0, 7)
-                .Select(i => startDate.AddDays(i).ToString("MMM d"))
+            string[] last7Days = distinctTransactionDates
+                .OrderBy(d => d) // Sort dates in ascending order
+                .Select(d => d.ToString("MMM d"))
                 .ToArray();
 
             ViewBag.SplineChartData = from day in last7Days
@@ -136,6 +154,7 @@ namespace BudgetApp.Controllers
             
             ViewBag.RecentTransactions = await _context.Transactions
                 .Include(i => i.Category)
+                .Where(t => t.UserId == userId)
                 .OrderByDescending(j => j.Date)
                 .Take(5)
                 .ToListAsync();

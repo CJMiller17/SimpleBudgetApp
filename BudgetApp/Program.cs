@@ -1,11 +1,7 @@
 using BudgetApp.Models;
 using Microsoft.EntityFrameworkCore;
 
-
 var builder = WebApplication.CreateBuilder(args);
-
-
-
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddDistributedMemoryCache();

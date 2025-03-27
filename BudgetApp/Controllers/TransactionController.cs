@@ -88,13 +88,25 @@ namespace BudgetApp.Controllers
                     _context.Add(transaction);
                 else
                 {
-                    // Verify the transaction belongs to the current user before updating
+                    // Find the existing entity and update its properties
                     var existingTransaction = await _context.Transactions.FindAsync(transaction.TransactionId);
-                    if (existingTransaction != null && existingTransaction.UserId != userId)
+                    if (existingTransaction != null)
                     {
-                        return RedirectToAction(nameof(Index));
+                        if (existingTransaction.UserId != userId)
+                        {
+                            return RedirectToAction(nameof(Index));
+                        }
+                
+                        // Update the properties of the existing entity
+                        existingTransaction.CategoryId = transaction.CategoryId;
+                        existingTransaction.Amount = transaction.Amount;
+                        existingTransaction.Note = transaction.Note;
+                        existingTransaction.Date = transaction.Date;
                     }
-                    _context.Update(transaction);
+                    else
+                    {
+                        return NotFound();
+                    }
                 }
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
