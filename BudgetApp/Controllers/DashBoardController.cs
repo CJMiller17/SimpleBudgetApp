@@ -134,21 +134,44 @@ namespace BudgetApp.Controllers
                 .OrderBy(d => d) // Sort dates in ascending order
                 .Select(d => d.ToString("MMM d"))
                 .ToArray();
-
-            ViewBag.SplineChartData = from day in last7Days
-                
-                                      join income in incomeSummary on day equals income.day into dayIncomeJoined
-                                      from income in dayIncomeJoined.DefaultIfEmpty()
-                                      
-                                      join expense in expenseSummary on day equals expense.day into expenseJoined
-                                      from expense in expenseJoined.DefaultIfEmpty()
-                                      select new
-                                      {
-                                          day = day,
-                                          income = income == null ? 0 : income.income,
-                                          expense = expense == null ? 0 : expense.expense,
-                                      };
             
+            // Calculate running balance
+            decimal runningBalance = 0;
+            var balanceData = new List<object>();
+
+            foreach (var day in last7Days)
+            {
+                // Add income for this day
+                var dayIncome = incomeSummary.FirstOrDefault(i => i.day == day)?.income ?? 0;
+                runningBalance += dayIncome;
+    
+                // Subtract expense for this day
+                var dayExpense = expenseSummary.FirstOrDefault(e => e.day == day)?.expense ?? 0;
+                runningBalance -= dayExpense;
+    
+                balanceData.Add(new
+                {
+                    day = day,
+                    balance = runningBalance,
+                    expense = dayExpense
+                });
+            }
+
+            ViewBag.SplineChartData = balanceData;
+                // from day in last7Days
+                //
+                //                       join income in incomeSummary on day equals income.day into dayIncomeJoined
+                //                       from income in dayIncomeJoined.DefaultIfEmpty()
+                //                       
+                //                       join expense in expenseSummary on day equals expense.day into expenseJoined
+                //                       from expense in expenseJoined.DefaultIfEmpty()
+                //                       select new
+                //                       {
+                //                           day = day,
+                //                           income = income == null ? 0 : income.income,
+                //                           expense = expense == null ? 0 : expense.expense,
+                //                       };
+                //
            
             /* Recent Transactions Widget */
             

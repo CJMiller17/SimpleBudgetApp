@@ -22,14 +22,9 @@ builder.Services.AddControllersWithViews()
 
 // Dependency injection for the ApplicationDBContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
-        sqlOptions =>
-        {
-            sqlOptions.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null); // Retry 5 times with a 10-second interval
-        }
-    )
-);
+    options.UseSqlite(
+        builder.Configuration.GetConnectionString("DefaultConnection")
+    ));
 
 Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBMAY9C3t2XVhhQlJHfVtdXGtWfFN0QHNedVp2flFPcDwsT3RfQFhjSn9ad0xnUXtcdnJdTw==");
 

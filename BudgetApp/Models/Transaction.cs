@@ -6,7 +6,8 @@ namespace BudgetApp.Models;
 public class Transaction
 {
     [Key]
-    public int TransactionId { get; init; }
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int TransactionId { get; set; }
     
     [Range(1,int.MaxValue, ErrorMessage = "Please select a category.")]
     public int CategoryId { get; set; }
