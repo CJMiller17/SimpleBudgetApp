@@ -43,9 +43,9 @@ Built on SQL lite. Very convenient for a small app, as it's not complicated and 
 
 ## Code:You Capstone Requirements Met
 
--[x] bz;dlfgjnsdlkjbn
--[x] bz;dlfgjnsdlkjbn
--[x] bz;dlfgjnsdlkjbn
--[x] bz;dlfgjnsdlkjbn
--[x] bz;dlfgjnsdlkjbn
--[x] bz;dlfgjnsdlkjbn
+- [x] bz;dlfgjnsdlkjbn
+- [x] bz;dlfgjnsdlkjbn
+- [x] bz;dlfgjnsdlkjbn
+- [x] bz;dlfgjnsdlkjbn
+- [x] bz;dlfgjnsdlkjbn
+- [x] bz;dlfgjnsdlkjbn
