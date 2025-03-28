@@ -1,4 +1,5 @@
 # BudgetApp
+
 #### A Simple Budgeting Visualization Tool
 
 ## Overview
@@ -46,5 +47,9 @@ Built on SQL lite. Very convenient for a small app, as it's not complicated and 
 - [x] **Related tables** *(Hard)* : Transactions are related to categories and users. Categories are related to types.
 - [x] **CRUD API** *(Hard)* : Transactions and categories can be created, read, updated and deleted. These changes are saved in the DB and persisted throughout interactions.
 - [x] **Asynchronous** *(Medium)* : Transactions, Categories, and Users are pulled asynchronously.
+- [x] **Web Based** : MVC made with Razor views.
+- [x] **API** : Student creatd API that has been integrated.
+- [x] **Database Interaction** : Transactions, Categories, and Users are their own classes and tables.
+
 
 
