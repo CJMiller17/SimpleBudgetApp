@@ -26,13 +26,26 @@ To run this project, follow these steps:
 1. Get the database data from SQLlite files: `dotnet ef database update`
 1. Build and Run the app. Either through your IDE or by: `dotnet build` `dotnet run`
 
+## Features available in the project
 
+  | Feature        | Description                           |
+  |----------------|---------------------------------------|
+  | Users | You can select from 5 user profiles to use |
+  | Dashboard | Breaks down spending habits and information visually with 4 different widgets |
+  | Categories | Any user can add a new category which will be available to all other users. Any category can be edited |
+  | Transactions | A user can add their own transactions and they will only be tied to their profile. It will be factored into the 4 widgets. It can also be edited |
+  | Sidebar | Navigation panel that can be collapsed to make more room for the info on the dashboard |
+  | Breadcrumbs | Convenient way to navigate through the app |
    
 ## Database
 
-All data for the system including inventory, part types, service history, and vehicle information will be stored in a SQL database named DatabaseName.
+Built on SQL lite. Very convenient for a small app, as it's not complicated and doesn't require hosting. It's file based and perfect for a project like this.
 
-## Dependencies
+## Code:You Capstone Requirements Met
 
-1. NodaTime - Nuget package for handling time zones
-1. AutoPartsDataSolutions API - Catalog of manufacturers and auto parts
+-[x] bz;dlfgjnsdlkjbn
+-[x] bz;dlfgjnsdlkjbn
+-[x] bz;dlfgjnsdlkjbn
+-[x] bz;dlfgjnsdlkjbn
+-[x] bz;dlfgjnsdlkjbn
+-[x] bz;dlfgjnsdlkjbn
