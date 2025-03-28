@@ -32,6 +32,11 @@ namespace BudgetApp.Controllers
             ViewBag.UserName = user?.Name ?? "Default User";
             ViewBag.UserProfileImage = user?.ProfileImagePath ?? "profile.jpg";
         }
+        
+        public async Task<IActionResult> Index()
+        {
+            return RedirectToAction(nameof(UserSelection));
+        }
 
         public async Task<IActionResult> UserSelection()
         {

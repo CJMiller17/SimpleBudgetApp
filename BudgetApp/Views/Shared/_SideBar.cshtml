@@ -11,7 +11,7 @@
     {
         text = "Dashboard",
         url = "/",
-        iconCss = "fa-solid fa-box",
+        iconCss = "fa-solid fa-chart-line",
     });
     menuItems.Add(new
     {
@@ -36,7 +36,7 @@
 
 
 <ejs-sidebar id="sidebar" width="290px" enableDock dockSize="100px"
-            target=".dock-target" enableGestures="false">
+            target=".dock-target" enableGestures="false" position="Right">
     <e-content-template>
 
         <div class="logo-wrapper">
@@ -47,7 +47,7 @@
         <div class="profile-wrapper">
             <img class="profile-pic" alt="profile picture of @ViewBag.UserName" src="~/images/@ViewBag.UserProfileImage" />
             <div class="titles d-flex flex-column ps-3">
-                <h6 class="mb-0">Budget App</h6>
+                <h6 class="mb-0" style="color: #2aa1ff">Budget App</h6>
                 <span class="text-muted fs-6">@ViewBag.UserName</span>
             </div>
         </div>

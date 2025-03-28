@@ -98,6 +98,7 @@ namespace BudgetApp.Controllers
                 .Select(k => new
                 {
                     categoryTitleWithIcon = k.First().Category.Icon + " " + k.First().Category.Title,
+                    categoryTitle = k.First().Category.Title,
                     amount = k.Sum(j => j.Amount),
                     formattedAmount = k.Sum(j => j.Amount).ToString("C2"),
                 })
@@ -157,7 +158,7 @@ namespace BudgetApp.Controllers
                 });
             }
 
-            ViewBag.SplineChartData = balanceData;
+            ViewBag.LineChartData = balanceData;
                 // from day in last7Days
                 //
                 //                       join income in incomeSummary on day equals income.day into dayIncomeJoined

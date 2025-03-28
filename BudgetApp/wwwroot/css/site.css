@@ -20,7 +20,7 @@ html {
 
 body {
   margin-bottom: 60px;
-  background-color: #12161d;
+  background-color: #3A3A3A;
   color: #fff;
   overflow: hidden;
 }
@@ -29,12 +29,22 @@ body {
   font-size: x-large;
 }
 
-.main-content {
-  margin-left: 290px;
-  overflow-y : auto;
-  height:92vh;
+h3 {
+  color: #2aa1ff;
 }
 
+/*.main-content {*/
+/*  margin-left: 290px;*/
+/*  overflow-y : auto;*/
+/*  height:92vh;*/
+/*}*/
+
+.main-content {
+  margin-right: 290px; /* Changed from margin-left to margin-right */
+  margin-left: 0; /* Add this to ensure no left margin */
+  overflow-y: auto;
+  height: 92vh;
+}
 
 /*BreadCrumb*/
 .e-breadcrumb a, .e-breadcrumb a:hover {
@@ -69,7 +79,7 @@ body {
 }
 
 .e-grid .e-gridcontent, .e-grid .e-table {
-  background-color: #1a222b;
+  background-color: #252525;
 }
 
 .e-grid .e-gridheader {
@@ -77,20 +87,20 @@ body {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   padding: 10px;
-  background-color: #222b33;
+  background-color: #252525;
 }
 
 .e-grid .e-gridheader .e-headercell {
-  background-color: #222b33;
+  background-color: rgba(58, 58, 58, 0.7);
 }
 
 .e-grid .e-gridpager {
-  background-color: #1a222b;
+  background-color: #252525;
 }
 
 .e-grid .e-pagercontainer {
   border: none;
-  background-color: #1a222b;
+  background-color: #252525;
 }
 
 .e-grid .e-content table {
@@ -98,13 +108,13 @@ body {
 }
 
 .e-pagercontainer .e-icons {
-  background-color: #1a222b;
+  background-color: #252525;
   border: none !important;
 }
 
 .e-pager .e-numericitem {
   color: #adb5bd;
-  background-color: #1a222b;
+  background-color: #252525;
   padding: 15px !important;
 }
 
@@ -183,8 +193,8 @@ body {
   margin: 5px 5px;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 13px;
-  color: #65da41;
+  font-size: 16px;
+  color: #2aa1ff;
 }
 
 #menu .e-menu-item.e-separator:not(:first-child) {
@@ -226,7 +236,7 @@ img.profile-pic {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: rgba(72, 84, 95, 0.12);
+  background-color: rgba(37, 37, 37, 1);
   padding: 16px 20px;
   border-radius: 12px;
   cursor: pointer;
@@ -249,19 +259,19 @@ img.profile-pic {
 .custom-rbt-group label.e-btn {
   box-shadow: none !important;
   border: 1px solid #fff;
-  background-color: rgb(34 43 51);
+  background-color: rgb(58 58 58);
   color: #fff;
 }
 
 .e-btn-group.custom-rbt-group input:checked + label.e-btn {
   background-color: #fff;
-  color: #212b36;
+  color: #3a3a3a !important;
   border: 1px solid #fff;
 }
 
 /*SideBar*/
 #sidebar {
-  background-color: #12161d;
+  background-color: #3A3A3A;
   border-right: 1px dashed rgba(75,82,85,0.24);
   padding: 10px 20px;
   overflow:hidden;
@@ -321,22 +331,39 @@ img.profile-pic {
   transform: translateX(0%);
 }
 
+#sidebar.e-sidebar.e-right {
+  border-left: 1px dashed rgba(37,37,37,.4);
+  border-right: none;
+}
+
 #sidebar.e-open #sidebar-toggler:before {
-  content: '\f100'
+  content: '\f101'
 }
 
 #sidebar.e-close #sidebar-toggler:before {
-  content: '\f101'
+  content: '\f100'
+}
+
+/* For when sidebar is docked */
+#sidebar.e-sidebar.e-dock.e-right:not(.e-close) ~ .dock-target {
+  margin-right: 100px;
+  margin-left: 0;
+}
+
+/* For when sidebar is closed */
+#sidebar.e-sidebar.e-right.e-close ~ .dock-target {
+  margin-right: 10px;
+  margin-left: 0;
 }
 
 /*Widget*/
 .widget {
   border-radius: 1rem;
-  background-color: #1a222b;
+  background-color: #252525;
 }
 
 .widget.summary > div:first-child {
-  background-color: #222b33;
+  background-color: rgba(58, 58, 58, .7);
   padding: 1rem;
   border-top-left-radius: 1rem;
   border-bottom-left-radius: 1rem;
