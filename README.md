@@ -43,9 +43,8 @@ Built on SQL lite. Very convenient for a small app, as it's not complicated and 
 
 ## Code:You Capstone Requirements Met
 
-- [x] bz;dlfgjnsdlkjbn
-- [x] bz;dlfgjnsdlkjbn
-- [x] bz;dlfgjnsdlkjbn
-- [x] bz;dlfgjnsdlkjbn
-- [x] bz;dlfgjnsdlkjbn
-- [x] bz;dlfgjnsdlkjbn
+- [x] ** Related tables ** *Hard* : Transactions are related to categories and users. Categories are related to types.
+- [x] ** CRUD API ** *Hard* : Transactions and categories can be created, read, updated and deleted. These changes are saved in the DB and persisted throughout interactions.
+- [x] ** Asynchronous ** *Medium* : Transactions, Categories, and Users are pulled asynchronously.
+
+
