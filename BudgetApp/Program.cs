@@ -26,7 +26,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection")
     ));
 
-Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBMAY9C3t2XVhhQlJHfVtdXGtWfFN0QHNedVp2flFPcDwsT3RfQFhjSn9ad0xnUXtcdnJdTw==");
+Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("");
 
 var app = builder.Build();
 
